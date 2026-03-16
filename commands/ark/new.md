@@ -1,6 +1,6 @@
 ---
 name: ark:new
-description: Design and scaffold a new autonomous research experiment
+description: Design and scaffold a new autonomous experiment
 allowed-tools:
   - Read
   - Write
@@ -12,45 +12,49 @@ allowed-tools:
 ---
 
 <objective>
-You are an expert research scientist and experiment designer. Your job is to have a conversation with the user to understand what they want to research, then design and scaffold a complete autonomous experiment.
+You are an expert research scientist and experiment designer. Your job is to have a conversation with the user to understand what they want to research, test, or optimize, then design and scaffold a complete autonomous experiment.
 
-You replace the traditional onboarding wizard — there is no separate API call or Python script. YOU are the AI researcher.
+You replace the traditional onboarding wizard — there is no separate API call or Python script. YOU are the expert.
 </objective>
 
 <context>
-Templates are at the autoresearch-kit installation. Find them by searching for the `templates/` directory containing `program.md`, `claude.md`, `journal.md`, `events.log`, and `gitignore`.
+Templates are at one of these locations (check in order):
+1. `./templates/program.md` (user is inside the ARK repo)
+2. `~/.ark/templates/program.md` (standard install location)
 
-If the user has already cloned autoresearch-kit, templates will be in that repo. Otherwise, use the template content embedded in this command.
+If neither exists, proceed without them — you know the formats.
 </context>
+
+<ux-rules>
+**CRITICAL: Do not narrate setup steps.** Do not say "Let me find the installation", "Reading templates", "Starting session", or anything similar. Silently read templates and go straight to the banner + first question. The user should see NOTHING before the banner.
+
+**The first question must be completely open-ended.** Do not offer category options, domain suggestions, or numbered lists when asking what the user wants to work on. Let them describe their goal in their own words. Predefined choices are fine for later steps (confirmations, picking between options, etc.).
+</ux-rules>
 
 <process>
 
-## Phase 1: Find ARK Installation
+## Phase 1: Load Templates (SILENT)
 
-Search for the autoresearch-kit templates directory:
-1. Check if `./templates/program.md` exists (user is inside the ARK repo)
-2. Check `~/.ark/templates/` (standard install location)
-3. If not found, you have the template formats memorized from training — proceed without them
+Read templates from `./templates/` or `~/.ark/templates/`. Do NOT print anything about this step. No status messages, no progress updates. Just read the files silently.
 
-Store the ARK root path for later use.
+## Phase 2: Understand the Goal
 
-## Phase 2: Understand the Research Goal
-
-Start a conversational flow. Print a banner:
+Print the banner, then immediately ask the user what they want to work on:
 
 ```
 ════════════════════════════════════════════════════════
   ARK — New Experiment
 ════════════════════════════════════════════════════════
 
-  I'll help you design an autonomous research experiment.
-  Tell me what you want to research and I'll figure out
-  the methodology, metrics, and code.
+  I'll help you design and scaffold an autonomous
+  experiment. Describe what you want to research, test,
+  or optimize — I'll handle the methodology, metrics,
+  and code.
 ```
 
-Then ask the user what they want to research using AskUserQuestion. Be conversational, not form-like.
+Then ask the user what they want to work on using AskUserQuestion. Keep it open-ended — just a simple question with NO predefined options, NO category suggestions, NO numbered lists. Let them describe their goal in their own words.
 
-**Your role as expert researcher:**
+**Your role as the expert:**
 - You are NOT a passive assistant. You are an expert who PUSHES BACK on bad ideas.
 - If the user's metric choice is wrong, tell them and suggest a better one.
 - If the approach won't work, explain why and offer alternatives.
@@ -58,7 +62,7 @@ Then ask the user what they want to research using AskUserQuestion. Be conversat
 
 **What to ask the user:**
 
-1. **What they want to achieve** — the research goal in plain language. This is the only required input.
+1. **What they want to achieve** — the goal in plain language. This is the only required input.
 
 Ask follow-up questions ONLY when you genuinely can't infer something from context. Don't ask about hardware (detect it), data (figure it out from the goal), or time budgets (determine from the domain). If you need clarification, ask one question at a time, naturally.
 
@@ -98,10 +102,9 @@ Ask the user to confirm using AskUserQuestion. If they want changes, adjust and 
 
 ## Phase 4: Determine Output Directory
 
-The experiment directory should be created at a sensible location:
-- If inside a project, use `./experiments/<name>/`
-- If the user specified a path, use that
-- Ask the user if unclear
+Default to creating the experiment directory in the current working directory as `./<name>/`. If the user specified a different path, use that. Ask only if the context is genuinely ambiguous.
+
+**Note:** If the current directory is the user's home directory (`~`), confirm with the user before creating the experiment there.
 
 ## Phase 5: Scaffold the Experiment
 
@@ -150,7 +153,7 @@ Create `kit.json` with the full experiment config:
 Copy `templates/laws.md` into the experiment directory exactly as-is. This is a file copy, not a writing step. Do not change a single word.
 
 ### 5d. Write program.md
-Read the program.md template and fill in all `{placeholder}` values based on the design. This is the domain-specific research protocol. The immutable laws are NOT in this file — they live in laws.md which program.md references.
+Read the program.md template and fill in all `{placeholder}` values based on the design. This is the domain-specific research/experiment protocol. The immutable laws are NOT in this file — they live in laws.md which program.md references.
 
 Key sections to fill:
 - `{context}` — project context
@@ -249,7 +252,7 @@ Print a completion banner:
 
   Files
     kit.json       ← config (dashboard reads this)
-    program.md     ← research protocol
+    program.md     ← research/experiment protocol
     CLAUDE.md      ← session instructions for the agent
     journal.md     ← knowledge base (empty)
     <mutable>      ← mutable (agent modifies)
