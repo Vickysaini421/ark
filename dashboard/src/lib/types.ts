@@ -1,6 +1,6 @@
 export interface Floor {
-  value: number;
-  direction: "lower" | "higher";
+  value: number | boolean;
+  direction: "lower" | "higher" | "equal";
 }
 
 export interface Phase {

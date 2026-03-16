@@ -70,8 +70,8 @@ export function readExperiments(kit: KitConfig): Experiment[] {
   const lines = raw.trim().split("\n");
   if (lines.length < 2) return [];
 
-  const headers = lines[0].split("\t");
-  return lines.slice(1).map((line) => {
+  const headers = lines[0].split("\t").map((h) => h.trim());
+  return lines.slice(1).filter((line) => line.trim()).map((line) => {
     const vals = line.split("\t");
     const row: Record<string, string | number | undefined> = {};
     headers.forEach((h, i) => {
@@ -166,6 +166,11 @@ export function loadAll(): DashboardData {
       currentPhaseIdx: -1,
     };
   }
+
+  // Normalize optional fields
+  kit.metric.floors = kit.metric.floors ?? {};
+  kit.metric.phases = kit.metric.phases ?? null;
+  kit.metric.composite_formula = kit.metric.composite_formula ?? null;
 
   const events = readEvents();
   const experiments = readExperiments(kit);

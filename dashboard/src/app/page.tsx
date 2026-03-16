@@ -13,7 +13,7 @@ import {
   Cell,
   ReferenceLine,
 } from "recharts";
-import type { DashboardData, Experiment, EventEntry, Phase } from "@/lib/types";
+import type { DashboardData, Experiment, EventEntry, Floor, Phase } from "@/lib/types";
 
 // ─── Helpers ──────────────────────────────────────────────
 function StatusDot({ color, pulse }: { color: string; pulse?: boolean }) {
@@ -80,11 +80,16 @@ export default function Dashboard() {
   const [dark, setDark] = useState(false);
   const [live, setLive] = useState(true);
 
+  const [error, setError] = useState<string | null>(null);
+
   const fetchData = useCallback(() => {
     fetch("/api/data")
-      .then((r) => r.json())
-      .then((d: DashboardData) => setData(d))
-      .catch(() => {});
+      .then((r) => {
+        if (!r.ok) throw new Error(`API error: ${r.status}`);
+        return r.json();
+      })
+      .then((d: DashboardData) => { setData(d); setError(null); })
+      .catch((e) => setError(e.message));
   }, []);
 
   useEffect(() => {
@@ -101,7 +106,7 @@ export default function Dashboard() {
   if (!data) {
     return (
       <div className="min-h-screen flex items-center justify-center text-[var(--text3)]">
-        Loading...
+        {error ? `Error: ${error}` : "Loading..."}
       </div>
     );
   }
@@ -116,9 +121,9 @@ export default function Dashboard() {
     : kit.metric.direction;
 
   // Merge floors
-  const allFloors = { ...kit.metric.floors };
+  const allFloors = { ...(kit.metric.floors ?? {}) };
   if (phases && currentPhaseIdx >= 0) {
-    Object.assign(allFloors, phases[currentPhaseIdx].floors);
+    Object.assign(allFloors, phases[currentPhaseIdx].floors ?? {});
   }
 
   // Metric columns (everything except commit, status, description)
@@ -137,7 +142,7 @@ export default function Dashboard() {
   const discardCount = experiments.filter((e) => e.status === "discard").length;
 
   let improvement = 0;
-  if (baselineVal && bestVal && baselineVal !== 0) {
+  if (baselineVal !== null && bestVal !== null && baselineVal !== 0) {
     improvement = activeDirection === "lower"
       ? (baselineVal - bestVal) / Math.abs(baselineVal) * 100
       : (bestVal - baselineVal) / Math.abs(baselineVal) * 100;
@@ -327,7 +332,7 @@ function ProgressChart({
   metricCols: string[];
   defaultMetric: string;
   defaultDirection: string;
-  allFloors: Record<string, { value: number; direction: string }>;
+  allFloors: Record<string, Floor>;
   phaseGateExps: number[];
 }) {
   const [metricKey, setMetricKey] = useState(defaultMetric);
@@ -418,8 +423,8 @@ function ProgressChart({
               { value: "Running best", type: "line", color: "var(--green)" },
             ] }}
           />
-          {/* Floor line */}
-          {floor && (
+          {/* Floor line (numeric floors only) */}
+          {floor && typeof floor.value === "number" && (
             <ReferenceLine
               y={floor.value}
               stroke="var(--red)"
@@ -472,7 +477,7 @@ function FloorGauges({
   floors,
 }: {
   experiments: Experiment[];
-  floors: Record<string, { value: number; direction: string }>;
+  floors: Record<string, Floor>;
 }) {
   // Use latest kept experiment values
   const keptExps = experiments.filter((e) => e.status === "keep" || e.status === "baseline");
@@ -621,7 +626,7 @@ function ExperimentTable({
                   }`}
                 >
                   <td className="px-3 py-1.5 text-[var(--text3)]">{origIdx}</td>
-                  <td className="px-3 py-1.5 text-[var(--text)]">{e.commit}</td>
+                  <td className="px-3 py-1.5 text-[var(--text)] max-w-[100px] truncate" title={e.commit}>{e.commit?.slice(0, 7)}</td>
                   {metricCols.map((col) => {
                     const v = e[col];
                     const isActiveCol = col === activeMetric;
@@ -711,7 +716,7 @@ function ExperimentSummary({
   kit: DashboardData["kit"];
   activeMetric: string;
   activeDirection: string;
-  allFloors: Record<string, { value: number; direction: string }>;
+  allFloors: Record<string, Floor>;
 }) {
   const [expanded, setExpanded] = useState(false);
   const hasContext = kit.context || kit.goals || kit.description;
