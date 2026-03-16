@@ -143,8 +143,8 @@ Create `kit.json` with the full experiment config:
 }
 ```
 
-### 5c. Write laws.md — COPY VERBATIM, DO NOT MODIFY
-Copy `templates/laws.md` into the experiment directory EXACTLY as-is. Do NOT fill in placeholders, do NOT rewrite, do NOT soften language, do NOT remove sections. This file contains the immutable autoresearch laws (NEVER STOP, timeout, crash handling, simplicity criterion, journal protocol, experiment loop). These are Karpathy's core rules and are non-negotiable.
+### 5c. Copy laws.md — VERBATIM, DO NOT MODIFY
+Copy `templates/laws.md` into the experiment directory exactly as-is. This is a file copy, not a writing step. Do not change a single word.
 
 ### 5d. Write program.md
 Read the program.md template and fill in all `{placeholder}` values based on the design. This is the domain-specific research protocol. The immutable laws are NOT in this file — they live in laws.md which program.md references.
