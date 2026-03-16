@@ -11,8 +11,9 @@ It does NOT replace autoresearch. It supplements it with a better front door and
 ## Architecture
 
 - `/ark:new` — Interactive conversation that designs the experiment and scaffolds all files.
-- `/ark:run` — Starts the autonomous experiment loop.
-- `/ark:dashboard` — Launches the Next.js dashboard.
+- `/ark:go` — Launches the dashboard + starts the experiment loop in one command.
+- `/ark:run` — Starts the autonomous experiment loop (without dashboard).
+- `/ark:dashboard` — Launches the Next.js dashboard (without running experiments).
 - `/ark:report` — Progress report with plain-language insights.
 - `dashboard/` — Next.js 16 + React 19 + Recharts + Tailwind CSS. Reads `kit.json` + TSV files + `events.log` via API route.
 - `templates/` — Universal templates rendered during onboarding (program.md, journal.md, claude.md, etc.)

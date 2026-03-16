@@ -26,6 +26,10 @@ Print the following help text exactly:
                     to research, ARK designs the methodology and
                     generates all files.
 
+  /ark:go           Launch dashboard + start experimenting
+                    Starts the dashboard in the background and kicks
+                    off the experiment loop — one command, done.
+
   /ark:run          Start the autonomous experiment loop
                     Begins the modify → run → evaluate → keep/discard
                     cycle. Runs until you stop it.
@@ -44,9 +48,8 @@ Print the following help text exactly:
 
   1. cd into your project directory
   2. /ark:new              — design your experiment
-  3. /ark:run               — start experimenting
-  4. /ark:report            — what happened and what does it mean?
-  5. /ark:dashboard         — watch progress in browser
+  3. /ark:go               — launch dashboard + start experimenting
+  4. /ark:report           — what happened and what does it mean?
 
   WHAT ARK DOES
 

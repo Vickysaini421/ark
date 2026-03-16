@@ -71,13 +71,14 @@ curl -fsSL https://raw.githubusercontent.com/leagueofdrazn/ark/main/install.sh |
 
 ```
 /ark:new           # Design your experiment (this is the only setup step)
-/ark:run           # Start the autonomous loop (go to sleep)
+/ark:go            # Launch dashboard + start the autonomous loop
+/ark:run           # Start the autonomous loop (without dashboard)
 /ark:report        # Wake up — what happened and what does it mean?
-/ark:dashboard     # Watch live in browser
+/ark:dashboard     # Watch live in browser (without running experiments)
 /ark:help          # Show all commands
 ```
 
-`/ark:new` is the only setup step — describe your goal and ARK designs everything. After that, you can use slash commands or just ask your agent directly. Ask "how's my experiment going?" and it reads the experiment files and answers.
+`/ark:new` is the only setup step — describe your goal and ARK designs everything. Then `/ark:go` launches the dashboard and starts experimenting in one shot. You can also use `/ark:run` and `/ark:dashboard` separately, or just ask your agent directly. Ask "how's my experiment going?" and it reads the experiment files and answers.
 
 ## How it works
 
