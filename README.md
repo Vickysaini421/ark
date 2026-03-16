@@ -45,11 +45,11 @@ ARK has three layers, matching Karpathy's original design:
 curl -fsSL https://raw.githubusercontent.com/leagueofdrazn/ark/main/install.sh | sh
 ```
 
-Verify with:
+The installer auto-detects your runtimes and installs for each one. Verify with:
 
-```
-/ark:help
-```
+- Claude Code / Copilot: `/ark:help`
+- Gemini: `/ark:help`
+- Codex: `$ark-help`
 
 ### Recommended: Skip Permissions Mode
 
@@ -230,12 +230,12 @@ The core protocol is identical. ARK adds: the onboarding conversation, the journ
 
 ## Requirements
 
-- [Claude Code](https://claude.com/claude-code) (for slash commands)
+- An AI coding agent: [Claude Code](https://claude.com/claude-code), [Gemini CLI](https://github.com/google-gemini/gemini-cli), [Codex CLI](https://github.com/openai/codex), or [GitHub Copilot](https://github.com/features/copilot)
 - Node.js 18+ (for the dashboard)
 
 No GPU required. No API keys. No Python dependencies for the core tool.
 
-**Other agents:** The experiments ARK generates are agent-agnostic. Any AI coding agent (Codex, Cursor, etc.) can read `program.md` and `laws.md` and run the experiment loop — same as Karpathy's original. The `/ark:` slash commands are a Claude Code convenience layer for onboarding and reporting.
+The experiments ARK generates are agent-agnostic. The slash commands provide a structured workflow, but any agent can read `program.md` and `laws.md` directly — same as Karpathy's original.
 
 ## Examples
 
