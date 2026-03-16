@@ -77,9 +77,13 @@ if [ -z "$INSTALLED" ]; then
 else
   echo "  Done! ARK installed for:$INSTALLED"
   echo ""
-  echo "  Verify with:"
-  [ -n "$(echo "$INSTALLED" | grep claude)" ] && echo "    Claude Code / Copilot:  /ark:help"
-  [ -n "$(echo "$INSTALLED" | grep gemini)" ] && echo "    Gemini:                 /ark:help"
-  [ -n "$(echo "$INSTALLED" | grep codex)" ] &&  echo "    Codex:                  \$ark-help"
+  echo "  To get started, open a new session in any project directory:"
+  echo ""
+  [ -n "$(echo "$INSTALLED" | grep claude)" ] && echo "    claude --dangerously-skip-permissions"
+  [ -n "$(echo "$INSTALLED" | grep gemini)" ] && echo "    gemini --yolo"
+  [ -n "$(echo "$INSTALLED" | grep codex)" ] &&  echo "    codex --full-auto"
+  echo ""
+  echo "  Then type:"
+  echo "    /ark:new"
+  echo ""
 fi
-echo ""
