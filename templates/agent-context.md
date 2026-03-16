@@ -16,7 +16,7 @@ Your job in this session: **{goal_statement}**. Read `program.md` for the full m
 - `program.md` — research protocol. Read every session, NEVER modify.
 - `laws.md` — autoresearch laws. Read every session, NEVER modify.
 - `CLAUDE.md` / `AGENTS.md` — this file. NEVER modify.
-- `kit.json` — experiment config. NEVER modify.
+- `kit.json` — experiment config. Only update when the human approves a strategy change (e.g. phase transition). Log a PHASE_ADVANCE event when this happens.
 
 ### READ — consult these every session
 - `laws.md` — the non-negotiable experiment rules. Read FIRST.
