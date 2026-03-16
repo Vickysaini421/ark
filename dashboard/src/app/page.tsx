@@ -371,6 +371,19 @@ function ProgressChart({
     });
   }, [experiments, metricKey, higherIsBetter]);
 
+  // Compute Y-axis domain from non-crash values to prevent outliers from squishing the chart
+  const yDomain = useMemo(() => {
+    const vals = chartData
+      .filter((d) => d.value !== null && d.status !== "crash")
+      .map((d) => d.value as number);
+    if (vals.length === 0) return ["auto", "auto"] as const;
+    const min = Math.min(...vals);
+    const max = Math.max(...vals);
+    const range = max - min || Math.abs(max) * 0.1 || 1;
+    const pad = range * 0.05;
+    return [min - pad, max + pad] as const;
+  }, [chartData]);
+
   const kept = experiments.filter((e) => e.status === "keep" || e.status === "baseline").length;
 
   return (
@@ -404,7 +417,8 @@ function ProgressChart({
             label={{ value: metricKey, angle: -90, position: "insideLeft", offset: 10, style: { fill: "var(--text3)", fontSize: 11 } }}
             tick={{ fill: "var(--text3)", fontSize: 10 }}
             stroke="var(--border)"
-            domain={["auto", "auto"]}
+            domain={yDomain}
+            tickFormatter={(v: number) => fmt(v)}
           />
           <Tooltip
             contentStyle={{
