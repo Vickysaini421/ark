@@ -26,7 +26,7 @@ Store the absolute path as EXP_DIR.
 
 Look for the ARK dashboard:
 1. Check `./dashboard/package.json` (inside ARK repo)
-2. Check `~/Documents/GitHub/autoresearch-kit/dashboard/`
+2. Check `~/.ark/dashboard/`
 3. If not found, tell the user to clone autoresearch-kit
 
 ## Step 3: Install dependencies if needed
