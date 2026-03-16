@@ -52,18 +52,19 @@ cp -r autoresearch-kit/commands/ark ~/.claude/commands/
 cd autoresearch-kit/dashboard && npm install
 ```
 
-### Run
+### Use
 
-Open Claude Code in any project directory:
+Open Claude Code in any project directory. You never need to edit files manually — everything happens through slash commands:
 
 ```
-/ark:new           # Design your experiment (interactive conversation)
-/ark:run           # Start the autonomous loop
-/ark:report        # Check progress + what it means
+/ark:new           # Design your experiment (this is the only setup step)
+/ark:run           # Start the autonomous loop (go to sleep)
+/ark:report        # Wake up — what happened and what does it mean?
 /ark:dashboard     # Watch live in browser
+/ark:help          # Show all commands
 ```
 
-That's it. No API keys, no Python scripts, no configuration files to write.
+`/ark:new` is the only human touchpoint. It's a conversation — you describe your goal, ARK designs the experiment, generates all the code and config, and you're ready to run. No files to edit, no config to write, no metrics to choose manually.
 
 ## The onboarding conversation
 
