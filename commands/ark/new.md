@@ -176,7 +176,7 @@ Key sections to fill:
 - `{data_verify_instruction}` — how to check data exists
 
 ### 5e. Write agent context files
-Read the claude.md template and fill in ALL `{placeholder}` tokens. Write the result as BOTH `CLAUDE.md` (for Claude Code) and `AGENTS.md` (for Codex and other agents). Same content, two filenames.
+Read the `agent-context.md` template and fill in ALL `{placeholder}` tokens. Write the result as BOTH `CLAUDE.md` (for Claude Code) and `AGENTS.md` (for Codex and other agents). Same content, two filenames.
 
 Placeholders to fill: `{experiment_name}`, `{experiment_description}`, `{goal_statement}`, `{mutable_files_list}`, `{immutable_files_list}`, `{eval_command}`, `{parse_command}`, `{time_estimate}`, `{floors_table}`, `{primary_metric}`, `{direction}`, `{floors_discard_rule}`, `{tsv_header}`, `{branch_pattern}`, `{branch_example}`, `{data_verify_instruction}`.
 

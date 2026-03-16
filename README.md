@@ -208,7 +208,6 @@ ARK adds: the onboarding conversation, the journal system, `laws.md` (protocol r
 - **Protocol separation.** `laws.md` (immutable rules) is separate from `program.md` (domain config). The AI can't weaken the core protocol.
 - **Journal system.** Institutional memory across sessions prevents the agent from repeating failed experiments.
 - **NEVER STOP.** The agent runs indefinitely until manually interrupted. Go to sleep, wake up to results.
-- **Exploration, not proof.** Each experiment is a single-run comparison. Results are directional, not statistically rigorous. The journal's "3+ validations" rule provides some confidence, but treat ARK as an exploration tool — use it to find promising directions, then validate properly.
 
 ## Examples
 
