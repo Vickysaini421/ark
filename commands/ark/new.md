@@ -83,6 +83,7 @@ Choose the methodology yourself — the user describes the goal, you design the 
 - What code needs to be generated
 - Time budget per experiment (based on the domain)
 - What hardware is available (detect from the system)
+- What Python/runtime is available (check `which python3 || which python` — use what exists, don't assume `python` is in PATH)
 - What data is needed and where to get it (infer from the goal)
 
 ## Phase 3: Present the Design
