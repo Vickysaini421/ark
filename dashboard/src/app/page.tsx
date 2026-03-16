@@ -169,6 +169,7 @@ export default function Dashboard() {
               />
             </div>
             Live
+            <span title="Auto-refreshes data every 2 seconds so you can watch experiments in real time. Turn off to freeze the view." className="inline-flex items-center justify-center w-3.5 h-3.5 rounded-full border border-[var(--border-accent)] text-[0.6rem] text-[var(--text3)] cursor-help">i</span>
           </label>
 
           <label className="flex items-center gap-2 text-xs text-[var(--text2)] cursor-pointer select-none">
