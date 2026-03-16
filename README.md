@@ -47,7 +47,13 @@ curl -fsSL https://raw.githubusercontent.com/leagueofdrazn/ark/main/install.sh |
 
 ### Use
 
-Open Claude Code in any project directory. You never need to edit files manually — everything happens through slash commands:
+Open Claude Code in any project directory with permissions disabled so the agent can run autonomously:
+
+```bash
+claude --dangerously-skip-permissions
+```
+
+Then:
 
 ```
 /ark:new           # Design your experiment (this is the only setup step)
@@ -57,7 +63,7 @@ Open Claude Code in any project directory. You never need to edit files manually
 /ark:help          # Show all commands
 ```
 
-`/ark:new` is the only human touchpoint. It's a conversation — you describe your goal, ARK designs the experiment, generates all the code and config, and you're ready to run. No files to edit, no config to write, no metrics to choose manually.
+`/ark:new` is the only setup step — describe your goal and ARK designs everything. After that, you can use slash commands for structured actions, or just talk to Claude normally. Ask "how's my experiment going?" or "what's the best result so far?" and Claude reads the experiment files and answers. The slash commands aren't required — they just ensure a consistent, thorough response.
 
 ## The onboarding conversation
 
