@@ -50,6 +50,7 @@ Log every experiment to `results.tsv` — keeps, discards, and crashes. This is 
 
 - Append one row after EVERY experiment, regardless of outcome.
 - Do NOT commit results.tsv — leave it untracked by git.
+- Do NOT commit journal.md as part of experiment commits. Update it after the keep/discard decision so journal changes survive git resets. Leave journal changes as uncommitted working state.
 - Keep the header row consistent.
 - You can add extra columns — the dashboard auto-detects any numeric column as a metric.
 

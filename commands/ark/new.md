@@ -29,7 +29,7 @@ If the user has already cloned autoresearch-kit, templates will be in that repo.
 
 Search for the autoresearch-kit templates directory:
 1. Check if `./templates/program.md` exists (user is inside the ARK repo)
-2. Check `~/Documents/GitHub/autoresearch-kit/templates/`
+2. Check `~/.ark/templates/` (standard install location)
 3. If not found, you have the template formats memorized from training — proceed without them
 
 Store the ARK root path for later use.
@@ -173,9 +173,12 @@ Key sections to fill:
 - `{read_files_list}` — files to read each session
 - `{direction_text}` — "lowest possible" or "highest possible"
 - `{tag}` — default tag
+- `{data_verify_instruction}` — how to check data exists
 
 ### 5e. Write agent context files
-Read the claude.md template and fill in all placeholders. Write the result as BOTH `CLAUDE.md` (for Claude Code) and `AGENTS.md` (for Codex and other agents). Same content, two filenames — so every runtime finds its context file.
+Read the claude.md template and fill in ALL `{placeholder}` tokens. Write the result as BOTH `CLAUDE.md` (for Claude Code) and `AGENTS.md` (for Codex and other agents). Same content, two filenames.
+
+Placeholders to fill: `{experiment_name}`, `{experiment_description}`, `{goal_statement}`, `{mutable_files_list}`, `{immutable_files_list}`, `{eval_command}`, `{parse_command}`, `{time_estimate}`, `{floors_table}`, `{primary_metric}`, `{direction}`, `{floors_discard_rule}`, `{tsv_header}`, `{branch_pattern}`, `{branch_example}`, `{data_verify_instruction}`.
 
 ### 5f. Write journal.md
 Copy the journal template as-is.
