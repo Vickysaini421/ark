@@ -222,10 +222,12 @@ The core protocol is identical. ARK adds: the onboarding conversation, the journ
 
 ## Requirements
 
-- [Claude Code](https://claude.com/claude-code)
+- [Claude Code](https://claude.com/claude-code) (for slash commands)
 - Node.js 18+ (for the dashboard)
 
-No GPU required. No API keys. No Python dependencies for the core tool. Claude Code is the AI researcher.
+No GPU required. No API keys. No Python dependencies for the core tool.
+
+**Other agents:** The experiments ARK generates are agent-agnostic. Any AI coding agent (Codex, Cursor, etc.) can read `program.md` and `laws.md` and run the experiment loop — same as Karpathy's original. The `/ark:` slash commands are a Claude Code convenience layer for onboarding and reporting.
 
 ## Examples
 
