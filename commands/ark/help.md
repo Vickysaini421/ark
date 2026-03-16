@@ -6,7 +6,7 @@ allowed-tools:
 ---
 
 <objective>
-Display all available ARK (AutoResearch Kit) slash commands with descriptions and usage examples.
+Display all available ARK (AutoResearch Kit) commands with descriptions and usage examples.
 </objective>
 
 <process>

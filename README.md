@@ -75,7 +75,7 @@ curl -fsSL https://raw.githubusercontent.com/leagueofdrazn/ark/main/install.sh |
 /ark:help          # Show all commands
 ```
 
-`/ark:new` is the only setup step — describe your goal and ARK designs everything. After that, you can use slash commands or just ask your agent directly. Ask "how's my experiment going?" and it reads the experiment files and answers.
+`/ark:new` is the only setup step — describe your goal and ARK designs everything. After that, you can use commands or just ask your agent directly. Ask "how's my experiment going?" and it reads the experiment files and answers.
 
 ## How it works
 
@@ -205,7 +205,7 @@ ARK adds: the onboarding conversation, the journal system, `laws.md` (protocol r
 
 ## Design choices
 
-- **Agent-agnostic.** Slash commands work with Claude Code, Gemini, Codex, and Copilot. The generated experiments work with any AI coding agent.
+- **Agent-agnostic.** Works with Claude Code, Gemini, Codex, and Copilot. The generated experiments work with any AI coding agent.
 - **Domain agnostic.** The same tool handles ML training, trading backtests, web optimization, and anything else with a measurable outcome.
 - **Protocol separation.** `laws.md` (immutable rules) is separate from `program.md` (domain config). The AI can't weaken the core protocol.
 - **Journal system.** Institutional memory across sessions prevents the agent from repeating failed experiments.

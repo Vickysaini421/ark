@@ -3,17 +3,17 @@
 ## What This Is
 
 AutoResearch Kit is an open-source companion to Karpathy's [autoresearch](https://github.com/karpathy/autoresearch). It provides:
-1. **Onboarding** (`/ark:new`) — Slash command that walks users through designing experiments
+1. **Onboarding** (`/ark:new`) — Walks users through designing experiments
 2. **Dashboard** (`dashboard/`) — Next.js app for visualizing experiment progress
 
 It does NOT replace autoresearch. It supplements it with a better front door and a better window.
 
 ## Architecture
 
-- `/ark:new` — Slash command. Interactive conversation that designs the experiment and scaffolds all files.
-- `/ark:run` — Slash command. Starts the autonomous experiment loop.
-- `/ark:dashboard` — Slash command. Launches the Next.js dashboard.
-- `/ark:report` — Slash command. Progress report with plain-language insights.
+- `/ark:new` — Interactive conversation that designs the experiment and scaffolds all files.
+- `/ark:run` — Starts the autonomous experiment loop.
+- `/ark:dashboard` — Launches the Next.js dashboard.
+- `/ark:report` — Progress report with plain-language insights.
 - `dashboard/` — Next.js 16 + React 19 + Recharts + Tailwind CSS. Reads `kit.json` + TSV files + `events.log` via API route.
 - `templates/` — Universal templates rendered during onboarding (program.md, journal.md, claude.md, etc.)
 - `examples/` — Example kit.json + program.md for different domains (not runnable)
@@ -31,7 +31,7 @@ It does NOT replace autoresearch. It supplements it with a better front door and
 ## File Relationships
 
 ```
-/ark:new (slash command)
+/ark:new
   ├── reads: templates/*
   ├── conversation: AI designs the experiment with the user
   └── writes: experiment_dir/
