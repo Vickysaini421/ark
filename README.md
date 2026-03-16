@@ -81,7 +81,7 @@ curl -fsSL https://raw.githubusercontent.com/leagueofdrazn/ark/main/install.sh |
 
 ### 1. Onboarding
 
-`/ark:new` starts a conversation where you describe your goal. The AI designs everything else — metrics, evaluation code, data strategy, time budget. It detects your hardware, pushes back if your approach won't work, and explains what it's doing in plain language. You confirm the design, and it scaffolds the entire experiment.
+`/ark:new` starts a conversation where you describe your goal. The AI designs everything else — metrics, evaluation code, data strategy, time budget. It pushes back if your approach won't work, and explains what it's doing in plain language. You confirm the design, and it scaffolds the entire experiment.
 
 ### 2. The research loop
 
