@@ -170,12 +170,12 @@ your-experiment/
 
 | File | Who writes it | Modifiable during experiments? |
 |------|--------------|-------------------------------|
-| `laws.md` | ARK (copied verbatim) | Never |
-| `program.md` | Human + ARK together | Only when human approves a change |
+| `laws.md` | ARK | Never |
+| `program.md` | Human + ARK | Only when human approves a change |
 | `kit.json` | ARK | Only when human approves a change |
-| `journal.md` | Agent | Yes — this is the knowledge base |
-| `results.tsv` | Agent | Yes — append only |
-| Domain code | ARK generates, agent modifies | Mutable files: yes. Immutable files: no |
+| `journal.md` | ARK | Yes — this is the knowledge base |
+| `results.tsv` | ARK | Yes — append only |
+| Domain code | ARK | Mutable files: yes. Immutable files: no |
 
 ## Metric examples
 
