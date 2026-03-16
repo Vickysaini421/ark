@@ -4,6 +4,8 @@ A companion to [Karpathy's autoresearch](https://github.com/karpathy/autoresearc
 
 Describe what you want to research in plain language. ARK designs the experiment, generates the code, and runs it autonomously overnight. You wake up to results you can actually understand.
 
+![ARK Dashboard](docs/dashboard.png)
+
 ## Why ARK exists
 
 Karpathy's [autoresearch](https://github.com/karpathy/autoresearch) introduced a powerful idea: let the AI be the researcher, not just the engineer. The agent forms hypotheses, tests them, evaluates results, keeps what works, discards what doesn't, and builds knowledge over time. The human becomes the research director — defining what to investigate — while the AI runs hundreds of experiments autonomously. Sleep while it works. Wake up to progress.
