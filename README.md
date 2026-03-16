@@ -61,50 +61,7 @@ Open Claude Code in any project directory. You never need to edit files manually
 
 ## The onboarding conversation
 
-`/ark:new` starts an interactive conversation where Claude acts as an expert researcher. You describe what you want to achieve, and it designs the experiment:
-
-```
-/ark:new
-
-════════════════════════════════════════════════════════
-  ARK — New Experiment
-════════════════════════════════════════════════════════
-
-  I'll help you design an autonomous research experiment.
-  Tell me what you want to research and I'll figure out
-  the methodology, metrics, and code.
-
-> I want to train a small language model and make it as good
-  as possible on a fixed compute budget
-
-  Great — that's a classic scaling efficiency problem. A few questions:
-
-  1. What hardware are you running on?
-  2. What data do you want to train on?
-  3. How long should each experiment run?
-
-> M4 Max MacBook, whatever public dataset works best, 5 min is fine
-
-  Here's what I'm setting up:
-
-  - Primary metric: val_bpb (validation bits-per-byte) — lower is better
-  - Backend: MLX (optimized for Apple Silicon)
-  - Data: FineWeb-Edu via HuggingFace
-  - Time budget: 5 minutes per experiment
-
-  The agent will modify train.py while prepare.py stays locked.
-  Sound good?
-
-> yes
-
-  Experiment ready at experiments/mlx-pretraining/
-
-  Next steps:
-    /ark:run          — start the experiment loop
-    /ark:dashboard    — watch progress in browser
-```
-
-The AI isn't a passive form — it pushes back on bad ideas, chooses the methodology itself, and explains its reasoning in plain language.
+`/ark:new` starts a conversation where you describe your goal and the AI designs everything else — metrics, evaluation code, data strategy, time budget. It detects your hardware, pushes back if your approach won't work, and explains what it's doing in plain language. You confirm the design, and it scaffolds the entire experiment.
 
 ## The research loop
 
