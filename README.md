@@ -23,7 +23,7 @@ The core research loop is identical to Karpathy's. ARK wraps it with better onbo
 ## Who it's for
 
 - **You know you need to optimize something, but you're not sure how.** You have a goal — make something faster, more accurate, more profitable — but you don't know what metrics to track or how to design a rigorous test. ARK figures that out with you.
-- **You're not a statistician.** You don't need to be. ARK explains what the numbers mean, teaches you how to read the results, and tells you in plain language whether things are working.
+- **You're not a researcher.** You don't need to be. ARK explains what the numbers mean, teaches you how to read the results, and tells you in plain language whether things are working.
 - **You want results while you sleep.** Set up an experiment in 15 minutes, let it run overnight, wake up to a report that tells you what happened and what it means.
 - **You're already using autoresearch** and want better onboarding, visualization, and a research journal that prevents wasted experiments.
 
