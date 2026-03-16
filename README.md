@@ -175,18 +175,16 @@ your-experiment/
 | `results.tsv` | Agent | Yes — append only |
 | Domain code | ARK generates, agent modifies | Mutable files: yes. Immutable files: no |
 
-## Metric patterns
+## Metric examples
 
-ARK supports three metric patterns, chosen automatically during onboarding:
+ARK adapts the metric structure to your goal. Some common patterns it might set up:
 
-**Simple** — One metric to optimize, optional floor constraints.
-*Example: minimize val_bpb, or maximize net_sharpe with max_drawdown ≤ 15%*
+- **Single metric** — minimize val_bpb, or maximize net_sharpe
+- **Metric with constraints** — maximize Sharpe, but max_drawdown must stay under 15%
+- **Phased** — first get val_loss below 2.0, then switch to optimizing val_accuracy
+- **Composite** — optimize throughput / latency as a single score
 
-**Sequential** — Ordered phases where the focus shifts automatically.
-*Example: first get val_loss below 2.0, then switch to optimizing val_accuracy*
-
-**Composite** — A formula combining multiple metrics into one scalar.
-*Example: optimize throughput / latency*
+The AI decides what fits your domain. You don't pick from a menu.
 
 ## Relationship to Karpathy's autoresearch
 
