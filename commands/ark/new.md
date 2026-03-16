@@ -28,7 +28,7 @@ If neither exists, proceed without them — you know the formats.
 <ux-rules>
 **CRITICAL: Do not narrate setup steps.** Do not say "Let me find the installation", "Reading templates", "Starting session", or anything similar. Silently read templates and go straight to the banner + first question. The user should see NOTHING before the banner.
 
-**The first question must be completely open-ended.** Do not offer category options, domain suggestions, or numbered lists when asking what the user wants to work on. Let them describe their goal in their own words. Predefined choices are fine for later steps (confirmations, picking between options, etc.).
+**The first question must be completely open-ended.** When calling AskUserQuestion for the initial goal, do NOT pass any `suggestions` parameter — leave it empty so the user gets a plain text input with no predefined options. Let them describe their goal in their own words. Predefined choices are fine for later steps (confirmations, picking between options, etc.).
 </ux-rules>
 
 <process>
