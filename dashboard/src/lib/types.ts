@@ -23,6 +23,8 @@ export interface KitConfig {
   version: number;
   name: string;
   description?: string;
+  context?: string;
+  goals?: string;
   metric: MetricConfig;
   columns: string[];
   eval_command: string;

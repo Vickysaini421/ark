@@ -209,6 +209,9 @@ export default function Dashboard() {
           )}
         </div>
 
+        {/* ─── Experiment Summary ─── */}
+        <ExperimentSummary kit={kit} activeMetric={activeMetric} activeDirection={activeDirection} allFloors={allFloors} />
+
         {/* ─── Phase Banner ─── */}
         {phases && currentPhaseIdx >= 0 && (
           <PhaseBanner phases={phases} currentIdx={currentPhaseIdx} validVals={validVals} />
@@ -676,6 +679,78 @@ function EventLog({ events }: { events: EventEntry[] }) {
               <span className="text-[var(--text)] ml-2">{ev.description}</span>
             </div>
           ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── Experiment Summary ───────────────────────────────────
+function ExperimentSummary({
+  kit,
+  activeMetric,
+  activeDirection,
+  allFloors,
+}: {
+  kit: DashboardData["kit"];
+  activeMetric: string;
+  activeDirection: string;
+  allFloors: Record<string, { value: number; direction: string }>;
+}) {
+  const [expanded, setExpanded] = useState(false);
+  const hasContext = kit.context || kit.goals || kit.description;
+  if (!hasContext) return null;
+
+  const floorEntries = Object.entries(allFloors);
+
+  return (
+    <div className="mb-4">
+      <button
+        onClick={() => setExpanded(!expanded)}
+        className="text-[0.8rem] font-semibold text-[var(--amber)] uppercase tracking-widest mb-2 pb-1.5 border-b border-[var(--border)] w-full text-left flex items-center gap-2"
+      >
+        About This Experiment
+        <span className="text-xs text-[var(--text3)]">{expanded ? "▼" : "▶"}</span>
+      </button>
+      {expanded && (
+        <div className="border border-[var(--border)] bg-[var(--bg-card)] rounded-md p-4 space-y-3 text-sm">
+          {kit.description && (
+            <div>
+              <div className="text-[0.7rem] uppercase tracking-wider text-[var(--text2)] mb-1">What</div>
+              <div className="text-[var(--text)]">{kit.description}</div>
+            </div>
+          )}
+          {kit.goals && (
+            <div>
+              <div className="text-[0.7rem] uppercase tracking-wider text-[var(--text2)] mb-1">Goal</div>
+              <div className="text-[var(--text)]">{kit.goals}</div>
+            </div>
+          )}
+          <div>
+            <div className="text-[0.7rem] uppercase tracking-wider text-[var(--text2)] mb-1">Primary Metric</div>
+            <div className="text-[var(--text)]">
+              <span className="font-semibold text-[var(--amber)]">{activeMetric}</span>
+              <span className="text-[var(--text2)]"> — {activeDirection} is better</span>
+            </div>
+          </div>
+          {floorEntries.length > 0 && (
+            <div>
+              <div className="text-[0.7rem] uppercase tracking-wider text-[var(--text2)] mb-1">Constraints</div>
+              <div className="text-[var(--text)]">
+                {floorEntries.map(([name, floor]) => (
+                  <div key={name}>
+                    {name} must be {floor.direction === "lower" ? "≤" : "≥"} {floor.value}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+          {kit.context && (
+            <div>
+              <div className="text-[0.7rem] uppercase tracking-wider text-[var(--text2)] mb-1">Context</div>
+              <div className="text-[var(--text2)] text-xs leading-relaxed">{kit.context}</div>
+            </div>
+          )}
         </div>
       )}
     </div>
