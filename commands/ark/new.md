@@ -257,14 +257,6 @@ Print a completion banner:
   [Baseline (verified)]
     [<metric>: <value>]
 
-  Files
-    kit.json       ← config (dashboard reads this)
-    program.md     ← research/experiment protocol
-    CLAUDE.md      ← session instructions for the agent
-    journal.md     ← knowledge base (empty)
-    <mutable>      ← mutable (agent modifies)
-    <immutable>    ← immutable (locked)
-
   Next steps:
     cd <output_dir>
     /ark:go             ← launch dashboard + start experimenting
